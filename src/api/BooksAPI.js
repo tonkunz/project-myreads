@@ -11,7 +11,7 @@ const headers = {
   'Accept': 'application/json',
   'Authorization': token
 }
-
+                              
 export const get = (bookId) =>
   fetch(`${api}/books/${bookId}`, { headers })
     .then(res => res.json())
