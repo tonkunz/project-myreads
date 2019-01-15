@@ -5,16 +5,19 @@ class Shelf extends Component {
 
 	render(){
 		//Destructuring ES6
-		const {name, books} = this.props
+		const {name, books, swapShelf} = this.props
 
 		return(
 	    <div className="bookshelf">
 	      <h2 className="bookshelf-title">{name}</h2>
 	      <div className="bookshelf-books">
 	        <ol className="books-grid">
-	        	{books.map((book, i) =>
-	        		<li key={i}>
-	        		  <Book bookInfo={book}/>
+	        	{books.map(book =>
+	        		<li key={book.id}>
+	        		  <Book
+	        		  	bookInfo={book}
+	        		  	swapShelf={swapShelf}
+	        		  />
 	        		</li>
 	        	)}
 	        </ol>

@@ -4,7 +4,7 @@ class Book extends Component {
 
 	render(){
 		//Destructuring ES6
-		const {bookInfo} = this.props
+		const {bookInfo, swapShelf} = this.props
 
 		return(
 	    <div className="book">
@@ -13,7 +13,10 @@ class Book extends Component {
 	        	style={{ width: 128, height: 193, backgroundImage: `url(${bookInfo.imageLinks.thumbnail})` }}>
 	        </div>
 	        <div className="book-shelf-changer">
-	          <select>
+	          <select
+	          	value={bookInfo.shelf}
+	          	onChange={event => swapShelf(bookInfo, event)}
+	          >
 	            <option value="move" disabled>Move to...</option>
 	            <option value="currentlyReading">Currently Reading</option>
 	            <option value="wantToRead">Want to Read</option>

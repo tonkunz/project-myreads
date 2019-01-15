@@ -15,10 +15,15 @@ class BooksApp extends React.Component {
       .catch(e => console.log('error', e))
   }
 
+  swapShelf = (book, event) => {
+    BooksAPI.update(book, event.target.value)
+      .then(BooksAPI.getAll().then(books => this.setState({books: books})))
+  }
+
   render() {
-    let currentlyReading = this.state.books.filter(book => book.shelf === 'currentlyReading')
-    let wantToRead = this.state.books.filter(book => book.shelf === 'wantToRead')
-    let read = this.state.books.filter(book => book.shelf === 'read')
+    const currentlyReading = this.state.books.filter(book => book.shelf === 'currentlyReading')
+    const wantToRead = this.state.books.filter(book => book.shelf === 'wantToRead')
+    const read = this.state.books.filter(book => book.shelf === 'read')
 
     return (
       <div className="app">
@@ -54,14 +59,17 @@ class BooksApp extends React.Component {
                 <Shelf 
                   name="Currently Reading"
                   books={currentlyReading}
+                  swapShelf={this.swapShelf}
                 />
                 <Shelf 
                   name="Want to Read"
                   books={wantToRead}
+                  swapShelf={this.swapShelf}
                 />
                 <Shelf 
                   name="Read"
                   books={read}
+                  swapShelf={this.swapShelf}
                 />
               </div>
             </div>
