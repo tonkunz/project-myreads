@@ -1,6 +1,6 @@
 # MyReads Project
 
-### Visão geral do proejto:
+### Visão geral do projeto:
 Este é um projeto para [Udacity React Nanodegree](https://www.udacity.com/course/react-nanodegree--nd019). O projeto consiste em desenvolver através do React.js, uma aplicação que selecione e categorize livros em:
 - Lendo no momento (currently reading);
 - Deseja ler (want to read);
@@ -23,5 +23,5 @@ Certifique-se de ter instalado em sua máquina o Node.js, após isto no diretór
 ### Agradecimentos:
 - Ao conteúdo, lições, mentoria e comunidade da Udacity.
 
-## Copyright and License
+## Licença de uso
 Referente ao [código inicial](https://github.com/udacity/reactnd-project-myreads-starter) da Udacity.
