@@ -1,4 +1,7 @@
+//External libraries/packages dependencies
 import React, { Component} from 'react'
+import { Link } from 'react-router-dom'
+//Project especific dependencies
 import * as BooksAPI from '../api/BooksAPI'
 import Book from './Book'
 
@@ -37,8 +40,8 @@ class Search extends Component {
 		return(
 			<div className="search-books">
         <div className="search-books-bar">
-          <button className="close-search" onClick={() => this.props.closeSearch()}>Close</button>
-          <div className="search-books-input-wrapper">
+        	<Link to='/' className="close-search"> Close </Link>
+					<div className="search-books-input-wrapper">
             <input
             	type="text"
             	placeholder="Search by title or author"

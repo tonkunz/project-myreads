@@ -1,4 +1,6 @@
+//External libraries/packages dependencies
 import React, { Component } from 'react'
+//Style
 import noThumb from '../icons/no-thumb.svg'
 
 class Book extends Component {
@@ -31,7 +33,8 @@ class Book extends Component {
 	        </div>
 	      </div>
 	      <div className="book-title">{bookInfo.title}</div>
-	      {bookInfo.authors && bookInfo.authors.map((author, i) =>
+	      {//Names of authors handling
+	      	bookInfo.authors && bookInfo.authors.map((author, i) =>
 	      	<div key={i} className="book-authors">{author}</div>
 	      )}
 	    </div>			

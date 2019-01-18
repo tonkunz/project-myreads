@@ -1,8 +1,9 @@
+//External libraries/packages dependencies
 import React, { Component } from 'react'
+//Project especific dependencies
 import Book from './Book'
 
 class Shelf extends Component {
-
 	render(){
 		//Destructuring ES6
 		const {name, books, swapShelf} = this.props

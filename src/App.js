@@ -1,13 +1,17 @@
+//External libraries/packages dependencies
 import React from 'react'
+import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+//Project especific dependencies
 import * as BooksAPI from './api/BooksAPI'
-import './styles/App.css'
 import Shelf from './components/Shelf'
 import Search from './components/Search'
+// Style
+import './styles/App.css'
 
 class BooksApp extends React.Component {
   state = {
     books : [],
-    showSearchPage: false
   }
 
   componentDidMount() {
@@ -21,10 +25,6 @@ class BooksApp extends React.Component {
       .then(BooksAPI.getAll().then(books => this.setState({books: books})))
   }
 
-  closeSearch = () => {
-    this.setState({showSearchPage : false})
-  }
-
   render() {
     const currentlyReading = this.state.books.filter(book => book.shelf === 'currentlyReading')
     const wantToRead = this.state.books.filter(book => book.shelf === 'wantToRead')
@@ -32,19 +32,12 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
-        {this.state.showSearchPage ? (
-          <Search
-            closeSearch={this.closeSearch}
-            swapShelf={this.swapShelf}
-            books={this.state.books}
-          />
-        ) : (
+        <Route exact path='/' render={() => (
           <div className="list-books">
             <div className="list-books-title">
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-
               <div>
                 <Shelf 
                   name="Currently Reading"
@@ -63,11 +56,17 @@ class BooksApp extends React.Component {
                 />
               </div>
             </div>
-            <div className="open-search">
-              <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+            <div className='open-search'>
+              <Link to='/search'> Add a book </Link>
             </div>
           </div>
-        )}
+        )}/>
+        <Route path='/search' render={() => (
+          <Search
+            swapShelf={this.swapShelf}
+            books={this.state.books}
+          />
+        )}/>
       </div>
     )
   }
