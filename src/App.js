@@ -17,7 +17,6 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll()
       .then(books => this.setState({books: books}))
-      .catch(e => console.log('error', e))
   }
 
   swapShelf = (book, event) => {
