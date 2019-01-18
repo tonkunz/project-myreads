@@ -14,7 +14,7 @@ O projeto estático inicial foi fornecido pela [Udacity](https://github.com/udac
 
 
 ### Rodando localmente:
-Certifique-se de ter instalado em sua máquina o Node.js, após isto no diretório do projeto:
+Certifique-se de ter instalado em sua máquina o Node.js. Você pode verificar a versão do node com o comando `node -v`, o mesmo vale para o npm (`npm -v`). Feito isso:
 - Clone o projeto para sua máquina local: `git clone https://github.com/tonkunz/project-myreads`
 - Entre no diretório do projeto: `cd project-myreads`
 - Instale todas as denpendências com o `npm install`
