@@ -1,5 +1,6 @@
 //External libraries/packages dependencies
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 //Project especific dependencies
 import Book from './Book'
 
@@ -26,6 +27,12 @@ class Shelf extends Component {
 	    </div>
 		)
 	}
+}
+
+Shelf.propTypes = {
+	name: PropTypes.string.isRequired,
+	books: PropTypes.array.isRequired,
+	swapShelf: PropTypes.func.isRequired,
 }
 
 export default Shelf

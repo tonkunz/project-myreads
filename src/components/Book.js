@@ -1,5 +1,6 @@
 //External libraries/packages dependencies
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 //Style
 import noThumb from '../icons/no-thumb.svg'
 
@@ -40,6 +41,11 @@ class Book extends Component {
 	    </div>			
 		)
 	}
+}
+
+Book.propTypes = {
+	bookInfo: PropTypes.object.isRequired,
+	swapShelf: PropTypes.func.isRequired,
 }
 
 export default Book

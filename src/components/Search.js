@@ -1,6 +1,7 @@
 //External libraries/packages dependencies
 import React, { Component} from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 //Project especific dependencies
 import * as BooksAPI from '../api/BooksAPI'
 import Book from './Book'
@@ -66,6 +67,11 @@ class Search extends Component {
       </div>
 		)
 	}
+}
+
+Search.propTypes = {
+	books: PropTypes.array.isRequired,
+	swapShelf: PropTypes.func.isRequired,
 }
 
 export default Search
