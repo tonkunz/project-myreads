@@ -200,3 +200,28 @@ button:active {
   text-align: center;
   font-size: 0.8em;
 }
+
+/* Loading */
+
+.loading-section {
+  margin: 50px auto auto auto;
+  text-align: center;
+}
+
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #60ac5d;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

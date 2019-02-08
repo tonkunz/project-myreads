@@ -12,11 +12,15 @@ import './styles/App.css'
 class BooksApp extends React.Component {
   state = {
     books : [],
+    loading : true
   }
 
   componentDidMount() {
     BooksAPI.getAll()
-      .then(books => this.setState({books: books}))
+      .then(books => {
+        this.setState({books: books})
+        this.setState({loading : !this.state.loading})
+      })
   }
 
   swapShelf = (book, event) => {
@@ -31,35 +35,42 @@ class BooksApp extends React.Component {
 
     return (
       <div className="app">
-        <Route exact path='/' render={() => (
-          <div className="list-books">
-            <div className="list-books-title">
-              <h1>MyReads</h1>
+        {this.state.loading
+          ? <div className='loading-section'>
+              <div className='loader'/>
+              <h2>Loading Data...</h2>
             </div>
-            <div className="list-books-content">
-              <div>
-                <Shelf 
-                  name="Currently Reading"
-                  books={currentlyReading}
-                  swapShelf={this.swapShelf}
-                />
-                <Shelf 
-                  name="Want to Read"
-                  books={wantToRead}
-                  swapShelf={this.swapShelf}
-                />
-                <Shelf 
-                  name="Read"
-                  books={read}
-                  swapShelf={this.swapShelf}
-                />
+          : <Route exact path='/' render={() => (
+              <div className="list-books">
+                <div className="list-books-title">
+                  <h1>MyReads</h1>
+                </div>
+                <div className="list-books-content">
+                  <div>
+                    <Shelf 
+                      name="Currently Reading"
+                      books={currentlyReading}
+                      swapShelf={this.swapShelf}
+                    />
+                    <Shelf 
+                      name="Want to Read"
+                      books={wantToRead}
+                      swapShelf={this.swapShelf}
+                    />
+                    <Shelf 
+                      name="Read"
+                      books={read}
+                      swapShelf={this.swapShelf}
+                    />
+                  </div>
+                </div>
+                <div className='open-search'>
+                  <Link to='/search'> Add a book </Link>
+                </div>
               </div>
-            </div>
-            <div className='open-search'>
-              <Link to='/search'> Add a book </Link>
-            </div>
-          </div>
-        )}/>
+            )}/>
+        }
+
         <Route path='/search' render={() => (
           <Search
             swapShelf={this.swapShelf}
