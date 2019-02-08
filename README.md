@@ -6,7 +6,7 @@ Este é um projeto para [Udacity React Nanodegree](https://www.udacity.com/cours
 - Deseja ler (want to read);
 - Já lido (read).
 
-### Especificadades do projeto:
+### Especifidades do projeto:
 O projeto estático inicial foi fornecido pela [Udacity](https://github.com/udacity/reactnd-project-myreads-starter) onde o React foi utilizado. Funções que foram implementadas partindo do projeto inicial:
 * Permitir a troca de estantes de maneira permanente utilizando a API fornecida no projeto.
 * Implementar um componente de busca.
