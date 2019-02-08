@@ -24,8 +24,27 @@ class BooksApp extends React.Component {
   }
 
   swapShelf = (book, event) => {
+    const curShelf = book.shelf //Shelf backup for .catch
+    book.shelf = event.target.value
+  
+    //Optimistically Update
+    this.setState(c => ({
+      ...c.books,
+        [book.id] : book
+    }))
+  
     BooksAPI.update(book, event.target.value)
-      .then(BooksAPI.getAll().then(books => this.setState({books: books})))
+      .then(() =>
+        BooksAPI.getAll().then(books => this.setState({books: books})))
+      .catch(() => {
+        alert('An error occurred! Try swap shel again later')
+        //Reversing UI change
+        book.shelf = curShelf
+        this.setState(c => ({
+          ...c.books,
+            [book.id] : book
+        }))
+      })
   }
 
   render() {

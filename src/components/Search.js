@@ -17,7 +17,7 @@ class Search extends Component {
 			query : query
 		}))
 
-		query ? (
+		query.trim() ? (
 			BooksAPI.search(query)
 				.then(books => {
 					if (books.length > 0){
@@ -37,7 +37,6 @@ class Search extends Component {
 	}
 
 	render(){
-
 		return(
 			<div className="search-books">
         <div className="search-books-bar">
